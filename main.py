@@ -10,7 +10,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from utils.scrapper import battle_shop_scrapper
 import chromedriver_autoinstaller
 
-
 #chromedriver_autoinstaller.install()
 
 # CONFIG FOR PRODUCTION ENV
@@ -33,6 +32,6 @@ while True:
     print('Scraping shop.battle.net...........................')
     battle_shop_scrapper(driver, WebDriverWait, By, EC)
 
-    # Sleep for 1 min then continue
-    time.sleep(60)
+    # Sleep for 30secs, then continue
+    time.sleep(30)
 
