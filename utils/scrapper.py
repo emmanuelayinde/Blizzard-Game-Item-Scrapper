@@ -1,7 +1,8 @@
 # IMPORT NECCESSARY LIB
 import os
 import time
-from selenium.common.exceptions import NoSuchElementException, JavascriptException        
+from selenium.common.exceptions import NoSuchElementException, JavascriptException
+from utils.date import now        
 from utils.formatter import format_description_text
 from utils.tweet import tweet
 
@@ -36,11 +37,11 @@ def battle_shop_scrapper(driver, WebDriverWait, By, EC):
             break
 
     if url == None:
-        print('No new card available at the moment')        
+        print('No new card available at the moment', now())        
     else:
         scrape_card_info(driver, By, url, index)
+        print('done..............', now())         
         driver.quit()
-        print('done..............')         
 
 
 
@@ -74,7 +75,7 @@ def scrape_card_info(driver, By, url, i):
         availability = driver.find_element(By.CSS_SELECTOR, "dd.product-notification").text
     except NoSuchElementException:
         availability = 'Available'
-        print("Element does not exist") 
+        print("Element does not exist", now()) 
 
      # Check if "Price Element is present"
     try:

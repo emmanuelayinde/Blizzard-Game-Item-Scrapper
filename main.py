@@ -6,6 +6,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from utils.date import now
 # from keep_alive import alive
 from utils.scrapper import battle_shop_scrapper
 import chromedriver_autoinstaller
@@ -29,7 +30,7 @@ while True:
     driver = webdriver.Chrome(service=Service(chromedriver_autoinstaller.install()), options=chrome_options)         
 
 
-    print('Scraping shop.battle.net...........................')
+    print('Scraping shop.battle.net...........................', now())
     battle_shop_scrapper(driver, WebDriverWait, By, EC)
 
     # Sleep for 30secs, then continue

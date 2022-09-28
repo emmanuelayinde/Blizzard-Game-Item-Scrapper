@@ -3,6 +3,8 @@ import requests
 import tweepy
 from dotenv import load_dotenv
 
+from utils.date import now
+
 load_dotenv()
 
 # TWITTER API CREDENTIALS 
@@ -38,7 +40,7 @@ def tweet_image(url, message):
 
         media_file = client.media_upload(filename = file)
         response = client.update_status(status = message, media_ids = [media_file.media_id_string])
-        print('Tweeted.................................')
+        print('Tweeted.................................', now())
         os.remove(file)
     else:
         print("Unable to download image")
