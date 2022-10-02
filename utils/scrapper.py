@@ -13,11 +13,13 @@ default_media = path + '/blizzard.png'
 
 def battle_shop_scrapper(driver, WebDriverWait, By, EC):
     driver.get('https://us.shop.battle.net/en-gb/family/hearthstone')
+    wait = WebDriverWait(driver, 30)
+
     driver.implicitly_wait(10)
 
     url = None
 
-    main_cards_container = WebDriverWait(driver, 30).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "main#main-content-skip-link-anchor div#start-of-content")))
+    main_cards_container = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "main#main-content-skip-link-anchor div#start-of-content")))
     all_cards_link = main_cards_container.find_elements(By.CSS_SELECTOR, "a.ng-star-inserted")
     
  
