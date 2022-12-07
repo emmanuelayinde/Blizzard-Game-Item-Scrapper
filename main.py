@@ -7,17 +7,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from utils.date import now
-# from keep_alive import alive
 from utils.scrapper import battle_shop_scrapper
 import chromedriver_autoinstaller
-
-#chromedriver_autoinstaller.install()
 
 # CONFIG FOR PRODUCTION ENV
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument("--no-sandbox")
-chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-chrome_options.add_argument("--headless")
+# chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+# chrome_options.add_argument("--headless")
 chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--disable-gpu")
 chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])

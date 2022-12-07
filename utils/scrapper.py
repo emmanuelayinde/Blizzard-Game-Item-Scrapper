@@ -26,10 +26,9 @@ def battle_shop_scrapper(driver, WebDriverWait, By, EC):
     for index, card_url in enumerate(all_cards_link):
         tweeted = False
         with open(path +"/data/tweeted_cards.txt") as f:
-            for line in f:
-                if line.strip() == card_url.get_attribute('href'):
-                    tweeted = True
-                    break
+            if card_url.get_attribute('href') in f.read():
+                tweeted = True
+                break
         if tweeted:
             continue  
         else: 
